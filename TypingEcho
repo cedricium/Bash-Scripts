@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# this script is a project I did to practice if/then/else statements
+# the script checks to see if file "poopy" exists, then either creates it or not depending
+#	 on the user's input.
+
+if [ -f ./poopy ]
+then
+	echo "This file exists!"
+else
+	echo "This file does NOT exist."
+	echo "Create a file named 'poopy'? [y,n]"
+	read -n1 input
+	if [[ $input == "y" || $input == "Y" ]]; then
+		echo "es"
+		foo='Creating file "poopy"...'
+		for (( i=0; i < ${#foo}; i++ )); do
+			echo -n "${foo:$i:1}"
+		sleep 0.1s
+		done
+		echo
+		sleep 1s
+		touch poopy
+		echo "Finished"
+		ls -lad *poopy
+	else
+		echo -e "o"
+		sleep 0.5s
+		fin="Very well, take care."
+		for (( i=0; i < ${#fin}; i++ )); do
+			echo -n "${fin:$i:1}"
+		sleep 0.1s
+		done
+		echo
+fi
+fi
