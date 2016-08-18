@@ -1,0 +1,178 @@
+#!/bin/bash
+
+cat << "EOF"
+
+
+    /$$$$$$                                                      /$$                      /$$$$$$$$      /$$          /$$         
+   /$$__  $$                                                    | $$                     |__  $$__/     |__/         |__/         
+  | $$  \__/ /$$$$$$  /$$$$$$  /$$$$$$  /$$$$$$ /$$$$$$  /$$$$$$| $$$$$$$ /$$   /$$         | $$ /$$$$$$ /$$/$$    /$$/$$ /$$$$$$ 
+  | $$ /$$$$/$$__  $$/$$__  $$/$$__  $$/$$__  $|____  $$/$$__  $| $$__  $| $$  | $$         | $$/$$__  $| $|  $$  /$$| $$|____  $$
+  | $$|_  $| $$$$$$$| $$  \ $| $$  \ $| $$  \__//$$$$$$| $$  \ $| $$  \ $| $$  | $$         | $| $$  \__| $$\  $$/$$/| $$ /$$$$$$$
+  | $$  \ $| $$_____| $$  | $| $$  | $| $$     /$$__  $| $$  | $| $$  | $| $$  | $$         | $| $$     | $$ \  $$$/ | $$/$$__  $$
+  |  $$$$$$|  $$$$$$|  $$$$$$|  $$$$$$| $$    |  $$$$$$| $$$$$$$| $$  | $|  $$$$$$$         | $| $$     | $$  \  $/  | $|  $$$$$$$
+   \______/ \_______/\______/ \____  $|__/     \_______| $$____/|__/  |__/\____  $$         |__|__/     |__/   \_/   |__/\_______/
+                              /$$  \ $$                | $$               /$$  | $$                                               
+                             |  $$$$$$/                | $$              |  $$$$$$/                                               
+                              \______/                 |__/               \______/                                                
+
+
+EOF
+
+
+# -------------------------------------------------------------------------------------------------------------------------
+
+echo "Welcome to Geography Trivia, a game to test your worldliness!"
+sleep 2s
+echo "Here's how it works:"
+sleep 2s
+echo
+echo "* You will be presented a question and alotted 6 seconds to read the quesion."
+sleep 2s
+echo "* All questions will be either [t]rue or [f]alse. Select the appropriate letter for the answer."
+sleep 2s
+echo "* After reading the question, you will have 10 seconds to choose the correct answer."
+sleep 3s
+echo
+echo "Ready, player?"
+sleep 3s
+echo
+
+
+# QUESTION1
+
+question1='QUESTION 1: Pennsylvania is the only American state to begin with the letter "p" [T/f]?'
+for (( i=0; i<${#question1}; i++ ));
+do
+echo -n "${question1:$i:1}"
+sleep 0.08s
+done
+sleep 1s
+echo
+read -n1 input
+if [[ $input == "t" || $input == "T" ]]; then
+	echo "rue"
+	sleep 1s
+	echo "That's correct! Nice work."
+	echo
+	echo
+	echo
+else
+	echo -e "alse"
+	sleep 1s
+	echo ":( :( :( - incorrect."
+	echo
+	echo
+	echo
+fi
+
+# QUESTION 2
+
+question2="QUESTION 2: Johannesburg is one of South Africa's three capitals. [T/f]?"
+for ((  i=0; i<${#question2}; i++ ));
+do
+echo -n "${question2:$i:1}"
+sleep 0.08s
+done
+sleep 1s
+echo
+read -n1 input
+if [[ $input == "t" || $input == "T" ]]; then
+	echo "rue"
+	sleep 1s
+	echo "WRONG! Better luck next time."
+	echo
+	echo
+	echo
+else
+	echo -e "alse"
+	sleep 1s
+	echo "Bingo! Keep at it."
+	echo
+	echo
+	echo
+fi
+
+# QUESTION 3
+
+question3="QUESTION 3: Memphis is the state capital of Tennessee. [T/f]?"
+for ((  i=0; i<${#question3}; i++ ));
+do
+echo -n "${question3:$i:1}"
+sleep 0.08s
+done
+sleep 1s
+echo
+read -n1 input
+if [[ $input == "t" || $input == "T" ]]; then
+	echo "rue"
+	sleep 1s
+	echo "Nope. :/ Tennessee's state capital is Nashville."
+	echo
+	echo
+	echo
+else
+	echo -e "alse"
+	sleep 1s
+	echo "YES, another point to you!"
+	echo
+	echo
+	echo
+fi
+
+# QUESTION 4
+
+lastQ="Okay, last question."
+for ((  i=0; i<${#lastQ}; i++ ));
+do
+echo -n "${lastQ:$i:1}"
+sleep 0.08s
+done
+sleep 1s
+echo
+echo
+
+question4="QUESTION 4: Seattle is more northernly than New York City. [T/f]?"
+for ((  i=0; i<${#question4}; i++ ));
+do
+echo -n "${question4:$i:1}"
+sleep 0.08s
+done
+sleep 1s
+echo
+read -n1 input
+if [[ $input == "t" || $input == "T" ]]; then
+	echo "rue"
+	sleep 1s
+	echo "You got it! Well done."
+	echo
+	echo
+	echo
+else
+	echo -e "alse"
+	sleep 1s
+	echo "Unfortunately you're wrong."
+	echo
+	echo
+	echo
+fi
+
+sleep 2s
+
+prompt1="Thanks for playing! I hope you had fun and maybe learned a thing or two."
+for ((  i=0; i<${#prompt1}; i++ ));
+do
+echo -n "${prompt1:$i:1}"
+sleep 0.06s
+done
+echo
+
+sleep 2s
+
+prompt2="Take care, this is GAME OVER!"
+for ((  i=0; i<${#prompt2}; i++ ));
+do
+echo -n "${prompt2:$i:1}"
+sleep 0.06s
+done
+echo
+sleep 2s
