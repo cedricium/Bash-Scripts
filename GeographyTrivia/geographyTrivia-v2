@@ -19,7 +19,7 @@ cat << "EOF"
 EOF
 
 
-# -------------------------------------------------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------------------
 
 echo "Welcome to Geography Trivia, a game to test your worldliness!"
 sleep 2s
@@ -47,22 +47,30 @@ echo -n "${question1:$i:1}"
 sleep 0.08s
 done
 sleep 1s
-echo
-read -n1 input
-if [[ $input == "t" || $input == "T" ]]; then
-	echo "rue"
-	sleep 1s
-	echo "That's correct! Nice work."
-	echo
-	echo
-	echo
-else
-	echo -e "alse"
-	sleep 1s
-	echo ":( :( :( - incorrect."
-	echo
-	echo
-	echo
+
+# TIMER & READ INPUT 1
+
+timeout=10
+echo -e -n "\nTIMER:"
+while [ $timeout -gt 0 ]; do
+	echo -n " $timeout"
+	if read -n1 -t1 -r -s input; then
+		if [[ $input == "t" || $input == "T" ]]; then
+			echo -e "\ntrue"
+			sleep 1s
+			echo -e "Great Job!\n"
+		else
+			echo -e "\nfalse"
+			sleep 1s
+			echo -e "Wrong!\n"
+		fi
+		echo
+		break
+	fi
+		let timeout--
+done
+if [ $timeout -eq 0 ]; then
+	echo -e "\nTime's up! Better luck next time.\n"
 fi
 
 # QUESTION 2
@@ -74,22 +82,30 @@ echo -n "${question2:$i:1}"
 sleep 0.08s
 done
 sleep 1s
-echo
-read -n1 input
-if [[ $input == "t" || $input == "T" ]]; then
-	echo "rue"
-	sleep 1s
-	echo "WRONG! Better luck next time."
-	echo
-	echo
-	echo
-else
-	echo -e "alse"
-	sleep 1s
-	echo "Bingo! Keep at it."
-	echo
-	echo
-	echo
+
+# TIMER & READ INPUT 2
+
+timeout=10
+echo -e -n "\nTIMER:"
+while [ $timeout -gt 0 ]; do
+	echo -n " $timeout"
+	if read -n1 -t1 -r -s input; then
+		if [[ $input == "t" || $input == "T" ]]; then
+			echo -e "\ntrue"
+			sleep 1s
+			echo -e "Nope! The capitals are actually Pretoria, Cape Town, and Bloemfontein.\n"
+		else
+			echo -e "\nfalse"
+			sleep 1s
+			echo -e "That is correct!\n"
+		fi
+		echo
+		break
+	fi
+		let timeout--
+done
+if [ $timeout -eq 0 ]; then
+	echo -e "\nTime's up! Better luck next time.\n"
 fi
 
 # QUESTION 3
@@ -101,22 +117,30 @@ echo -n "${question3:$i:1}"
 sleep 0.08s
 done
 sleep 1s
-echo
-read -n1 input
-if [[ $input == "t" || $input == "T" ]]; then
-	echo "rue"
-	sleep 1s
-	echo "Nope. :/ Tennessee's state capital is Nashville."
-	echo
-	echo
-	echo
-else
-	echo -e "alse"
-	sleep 1s
-	echo "YES, another point to you!"
-	echo
-	echo
-	echo
+
+# TIMER & READ INPUT 3
+
+timeout=10
+echo -e -n "\nTIMER:"
+while [ $timeout -gt 0 ]; do
+	echo -n " $timeout"
+	if read -n1 -t1 -r -s input; then
+		if [[ $input == "t" || $input == "T" ]]; then
+			echo -e "\ntrue"
+			sleep 1s
+			echo -e "NO! The capital is Nashville.\n"
+		else
+			echo -e "\nfalse"
+			sleep 1s
+			echo -e "You are correct!\n"
+		fi
+		echo
+		break
+	fi
+		let timeout--
+done
+if [ $timeout -eq 0 ]; then
+	echo -e "\nTime's up! Better luck next time.\n"
 fi
 
 # QUESTION 4
@@ -138,23 +162,33 @@ echo -n "${question4:$i:1}"
 sleep 0.08s
 done
 sleep 1s
-echo
-read -n1 input
-if [[ $input == "t" || $input == "T" ]]; then
-	echo "rue"
-	sleep 1s
-	echo "You got it! Well done."
-	echo
-	echo
-	echo
-else
-	echo -e "alse"
-	sleep 1s
-	echo "Unfortunately you're wrong."
-	echo
-	echo
-	echo
+
+# TIMER & READ INPUT
+
+timeout=10
+echo -e -n "\nTIMER:"
+while [ $timeout -gt 0 ]; do
+	echo -n " $timeout"
+	if read -n1 -t1 -r -s input; then
+		if [[ $input == "t" || $input == "T" ]]; then
+			echo -e "\ntrue"
+			sleep 1s
+			echo -e "Great Job!\n"
+		else
+			echo -e "\nfalse"
+			sleep 1s
+			echo -e "Nope!\n"
+		fi
+		echo
+		break
+	fi
+		let timeout--
+done
+if [ $timeout -eq 0 ]; then
+	echo -e "\nTime's up! Better luck next time.\n"
 fi
+
+#-----------------------------------------------------------------------------------------
 
 sleep 2s
 
