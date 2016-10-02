@@ -16,8 +16,7 @@ echo "Ready, player?"
 sleep 3s
 echo
 
-declare -i score
-score=0
+
 # QUESTION1
 
 question1='QUESTION 1: Pennsylvania is the only American state to begin with the letter "p" [T/f]?'
@@ -33,7 +32,6 @@ if [[ $input == "t" || $input == "T" ]]; then
 	echo "rue"
 	sleep 1s
 	echo "That's correct! Nice work."
-	let score++
 	echo
 	echo
 	echo
@@ -68,7 +66,6 @@ else
 	echo -e "alse"
 	sleep 1s
 	echo "Bingo! Keep at it."
-	let score++
 	echo
 	echo
 	echo
@@ -96,13 +93,22 @@ else
 	echo -e "alse"
 	sleep 1s
 	echo "YES, another point to you!"
-	let score++
 	echo
 	echo
 	echo
 fi
 
 # QUESTION 4
+
+lastQ="Okay, last question."
+for ((  i=0; i<${#lastQ}; i++ ));
+do
+echo -n "${lastQ:$i:1}"
+sleep 0.08s
+done
+sleep 1s
+echo
+echo
 
 question4="QUESTION 4: Seattle is more northernly than New York City. [T/f]?"
 for ((  i=0; i<${#question4}; i++ ));
@@ -117,7 +123,6 @@ if [[ $input == "t" || $input == "T" ]]; then
 	echo "rue"
 	sleep 1s
 	echo "You got it! Well done."
-	let score++
 	echo
 	echo
 	echo
@@ -130,200 +135,12 @@ else
 	echo
 fi
 
-# QUESTION5
-
-question5='QUESTION 5: There are 50 states in the contiguous United States. [T/f]?'
-for (( i=0; i<${#question5}; i++ ));
-do
-echo -n "${question5:$i:1}"
-sleep 0.08s
-done
-sleep 1s
-echo
-read -n1 input
-if [[ $input == "t" || $input == "T" ]]; then
-	echo "rue"
-	sleep 1s
-	echo "That's incorrect!"
-	echo
-	echo
-	echo
-else
-	echo -e "alse"
-	sleep 1s
-	echo "That's correct! Nice work."
-	let score++
-	echo
-	echo
-	echo
-fi
-
-# QUESTION6
-
-question6='QUESTION 6: The Indian Ocean is the third largest ocean in the world. [T/f]?'
-for (( i=0; i<${#question6}; i++ ));
-do
-echo -n "${question6:$i:1}"
-sleep 0.08s
-done
-sleep 1s
-echo
-read -n1 input
-if [[ $input == "t" || $input == "T" ]]; then
-	echo "rue"
-	sleep 1s
-	echo "whohoo you got it."
-	let score++
-	echo
-	echo
-	echo
-else
-	echo -e "alse"
-	sleep 1s
-	echo ":( :( :( - incorrect."
-	echo
-	echo
-	echo
-fi
-
-# QUESTION7
-
-question7='QUESTION 7: The Mississippi River is the longest river in the world. [T/f]?'
-for (( i=0; i<${#question7}; i++ ));
-do
-echo -n "${question7:$i:1}"
-sleep 0.08s
-done
-sleep 1s
-echo
-read -n1 input
-if [[ $input == "t" || $input == "T" ]]; then
-	echo "rue"
-	sleep 1s
-	echo "That's incorrect! :( "
-	echo
-	echo
-	echo
-else
-	echo -e "alse"
-	sleep 1s
-	echo ":) :) :) - correct."
-	let score++
-	echo
-	echo
-	echo
-fi
-
-# QUESTION8
-
-question8='QUESTION 8: The three countries with the largest land area in the world are Russia, Canada, and the United States. [T/f]?'
-for (( i=0; i<${#question8}; i++ ));
-do
-echo -n "${question8:$i:1}"
-sleep 0.08s
-done
-sleep 1s
-echo
-read -n1 input
-if [[ $input == "t" || $input == "T" ]]; then
-	echo "rue"
-	sleep 1s
-	echo "Incorrect Answer"
-	echo
-	echo
-	echo
-else
-	echo -e "alse"
-	sleep 1s
-	echo "correct answer ^_^"
-	let score++
-	echo
-	echo
-	echo
-fi
-
-# QUESTION9
-
-question9='QUESTION 9: The Tropic of Cancer is a meridian. [T/f]?'
-for (( i=0; i<${#question9}; i++ ));
-do
-echo -n "${question9:$i:1}"
-sleep 0.08s
-done
-sleep 1s
-echo
-read -n1 input
-if [[ $input == "t" || $input == "T" ]]; then
-	echo "rue"
-	sleep 1s
-	echo ":( :( :( - incorrect."
-	echo
-	echo
-	echo
-else
-	echo -e "alse"
-	sleep 1s
-	echo "That's correct! Nice work."
-	let score++
-	echo
-	echo
-	echo
-fi
-
-# QUESTION10
-
-lastQ="Okay, last question."
-for ((  i=0; i<${#lastQ}; i++ ));
-do
-echo -n "${lastQ:$i:1}"
-sleep 0.08s
-done
-sleep 1s
-echo
-echo
-
-question10='QUESTION 10: Uruguay has a greater population than Paraguay ? [T/f]?'
-for (( i=0; i<${#question10}; i++ ));
-do
-echo -n "${question10:$i:1}"
-sleep 0.08s
-done
-sleep 1s
-echo
-read -n1 input
-if [[ $input == "t" || $input == "T" ]]; then
-	echo "rue"
-	sleep 1s
-	echo "Nope. This is incorrect."
-	echo
-	echo
-	echo
-else
-	echo -e "alse"
-	sleep 1s
-	echo "Another point. Nice work. ^_^"
-	let score++
-	echo
-	echo
-	echo
-fi
-
 sleep 2s
 
 prompt1="Thanks for playing! I hope you had fun and maybe learned a thing or two."
 for ((  i=0; i<${#prompt1}; i++ ));
 do
 echo -n "${prompt1:$i:1}"
-sleep 0.06s
-done
-echo
-
-sleep 2s
-
-showScore="Your final score is $score"
-for(( i=0; i<${#showScore}; i++));
-do
-echo -n "${showScore:$i:1}"
 sleep 0.06s
 done
 echo
