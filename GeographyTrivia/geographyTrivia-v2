@@ -37,7 +37,8 @@ echo "Ready, player?"
 sleep 3s
 echo
 
-
+declare -i score
+score=0
 # QUESTION1
 
 question1='QUESTION 1: Pennsylvania is the only American state to begin with the letter "p" [T/f]?'
@@ -59,6 +60,7 @@ while [ $timeout -gt 0 ]; do
 			echo -e "\ntrue"
 			sleep 1s
 			echo -e "Great Job!\n"
+			let score++
 		else
 			echo -e "\nfalse"
 			sleep 1s
@@ -98,6 +100,7 @@ while [ $timeout -gt 0 ]; do
 			echo -e "\nfalse"
 			sleep 1s
 			echo -e "That is correct!\n"
+			let score++
 		fi
 		echo
 		break
@@ -133,6 +136,7 @@ while [ $timeout -gt 0 ]; do
 			echo -e "\nfalse"
 			sleep 1s
 			echo -e "You are correct!\n"
+			let score++
 		fi
 		echo
 		break
@@ -144,16 +148,6 @@ if [ $timeout -eq 0 ]; then
 fi
 
 # QUESTION 4
-
-lastQ="Okay, last question."
-for ((  i=0; i<${#lastQ}; i++ ));
-do
-echo -n "${lastQ:$i:1}"
-sleep 0.08s
-done
-sleep 1s
-echo
-echo
 
 question4="QUESTION 4: Seattle is more northernly than New York City. [T/f]?"
 for ((  i=0; i<${#question4}; i++ ));
@@ -174,10 +168,237 @@ while [ $timeout -gt 0 ]; do
 			echo -e "\ntrue"
 			sleep 1s
 			echo -e "Great Job!\n"
+			let score++
 		else
 			echo -e "\nfalse"
 			sleep 1s
 			echo -e "Nope!\n"
+		fi
+		echo
+		break
+	fi
+		let timeout--
+done
+if [ $timeout -eq 0 ]; then
+	echo -e "\nTime's up! Better luck next time.\n"
+fi
+
+# QUESTION5
+
+question5='QUESTION 5: There are 50 states in the contiguous United States. [T/f]?'
+for (( i=0; i<${#question5}; i++ ));
+do
+echo -n "${question5:$i:1}"
+sleep 0.08s
+done
+sleep 1s
+
+# TIMER & READ INPUT 1
+
+timeout=10
+echo -e -n "\nTIMER:"
+while [ $timeout -gt 0 ]; do
+	echo -n " $timeout"
+	if read -n1 -t1 -r -s input; then
+		if [[ $input == "t" || $input == "T" ]]; then
+			echo -e "\ntrue"
+			sleep 1s
+			echo -e "That's incorrect!\n"
+		else
+			echo -e "\nfalse"
+			sleep 1s
+			echo -e "That's correct! Nice work.\n"
+			let score++
+		fi
+		echo
+		break
+	fi
+		let timeout--
+done
+if [ $timeout -eq 0 ]; then
+	echo -e "\nTime's up! Better luck next time.\n"
+fi
+
+# QUESTION6
+
+question6='QUESTION 6: The Indian Ocean is the third largest ocean in the world. [T/f]?'
+for (( i=0; i<${#question6}; i++ ));
+do
+echo -n "${question6:$i:1}"
+sleep 0.08s
+done
+sleep 1s
+
+# TIMER & READ INPUT 1
+
+timeout=10
+echo -e -n "\nTIMER:"
+while [ $timeout -gt 0 ]; do
+	echo -n " $timeout"
+	if read -n1 -t1 -r -s input; then
+		if [[ $input == "t" || $input == "T" ]]; then
+			echo -e "\ntrue"
+			sleep 1s
+			echo -e "whohoo you got it.\n"
+			let score++
+		else
+			echo -e "\nfalse"
+			sleep 1s
+			echo -e ":( :( :( - incorrect.\n"
+		fi
+		echo
+		break
+	fi
+		let timeout--
+done
+if [ $timeout -eq 0 ]; then
+	echo -e "\nTime's up! Better luck next time.\n"
+fi
+
+# QUESTION7
+
+question7='QUESTION 7: The Mississippi River is the longest river in the world. [T/f]?'
+for (( i=0; i<${#question7}; i++ ));
+do
+echo -n "${question7:$i:1}"
+sleep 0.08s
+done
+sleep 1s
+
+# TIMER & READ INPUT 1
+
+timeout=10
+echo -e -n "\nTIMER:"
+while [ $timeout -gt 0 ]; do
+	echo -n " $timeout"
+	if read -n1 -t1 -r -s input; then
+		if [[ $input == "t" || $input == "T" ]]; then
+			echo -e "\ntrue"
+			sleep 1s
+			echo -e "That's incorrect! :( \n"
+		else
+			echo -e "\nfalse"
+			sleep 1s
+			echo -e ":) :) :) - correct.\n"
+			let score++
+		fi
+		echo
+		break
+	fi
+		let timeout--
+done
+if [ $timeout -eq 0 ]; then
+	echo -e "\nTime's up! Better luck next time.\n"
+fi
+
+# QUESTION8
+
+question8='QUESTION 8: The three countries with the largest land area in the world are Russia, Canada, and the United States. [T/f]?'
+for (( i=0; i<${#question8}; i++ ));
+do
+echo -n "${question8:$i:1}"
+sleep 0.08s
+done
+sleep 1s
+
+# TIMER & READ INPUT 1
+
+timeout=10
+echo -e -n "\nTIMER:"
+while [ $timeout -gt 0 ]; do
+	echo -n " $timeout"
+	if read -n1 -t1 -r -s input; then
+		if [[ $input == "t" || $input == "T" ]]; then
+			echo -e "\ntrue"
+			sleep 1s
+			echo -e "Incorrect Answer\n"
+		else
+			echo -e "\nfalse"
+			sleep 1s
+			echo -e "correct answer ^_^\n"
+			let score++
+		fi
+		echo
+		break
+	fi
+		let timeout--
+done
+if [ $timeout -eq 0 ]; then
+	echo -e "\nTime's up! Better luck next time.\n"
+fi
+
+# QUESTION9
+
+question9='QUESTION 9: The Tropic of Cancer is a meridian. [T/f]?'
+for (( i=0; i<${#question9}; i++ ));
+do
+echo -n "${question9:$i:1}"
+sleep 0.08s
+done
+sleep 1s
+
+# TIMER & READ INPUT 1
+
+timeout=10
+echo -e -n "\nTIMER:"
+while [ $timeout -gt 0 ]; do
+	echo -n " $timeout"
+	if read -n1 -t1 -r -s input; then
+		if [[ $input == "t" || $input == "T" ]]; then
+			echo -e "\ntrue"
+			sleep 1s
+			echo -e ":( :( :( - incorrect.\n"
+		else
+			echo -e "\nfalse"
+			sleep 1s
+			echo -e "That's correct! Nice work.\n"
+			let score++
+		fi
+		echo
+		break
+	fi
+		let timeout--
+done
+if [ $timeout -eq 0 ]; then
+	echo -e "\nTime's up! Better luck next time.\n"
+fi
+
+# QUESTION10
+
+lastQ="Okay, last question."
+for ((  i=0; i<${#lastQ}; i++ ));
+do
+echo -n "${lastQ:$i:1}"
+sleep 0.08s
+done
+sleep 1s
+echo
+echo
+
+question10='QUESTION 10: Uruguay has a greater population than Paraguay ? [T/f]?'
+for (( i=0; i<${#question10}; i++ ));
+do
+echo -n "${question10:$i:1}"
+sleep 0.08s
+done
+sleep 1s
+
+# TIMER & READ INPUT 1
+
+timeout=10
+echo -e -n "\nTIMER:"
+while [ $timeout -gt 0 ]; do
+	echo -n " $timeout"
+	if read -n1 -t1 -r -s input; then
+		if [[ $input == "t" || $input == "T" ]]; then
+			echo -e "\ntrue"
+			sleep 1s
+			echo -e "Nope. This is incorrect.\n"
+		else
+			echo -e "\nfalse"
+			sleep 1s
+			echo -e "Great Job! ^_^ \n"
+			let score++
 		fi
 		echo
 		break
@@ -196,6 +417,16 @@ prompt1="Thanks for playing! I hope you had fun and maybe learned a thing or two
 for ((  i=0; i<${#prompt1}; i++ ));
 do
 echo -n "${prompt1:$i:1}"
+sleep 0.06s
+done
+echo
+
+sleep 2s
+
+showScore="Your final score is $score"
+for(( i=0; i<${#showScore}; i++));
+do
+echo -n "${showScore:$i:1}"
 sleep 0.06s
 done
 echo
