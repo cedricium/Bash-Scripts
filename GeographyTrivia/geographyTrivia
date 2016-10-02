@@ -16,7 +16,8 @@ echo "Ready, player?"
 sleep 3s
 echo
 
-
+declare -i score
+score=0
 # QUESTION1
 
 question1='QUESTION 1: Pennsylvania is the only American state to begin with the letter "p" [T/f]?'
@@ -32,6 +33,7 @@ if [[ $input == "t" || $input == "T" ]]; then
 	echo "rue"
 	sleep 1s
 	echo "That's correct! Nice work."
+	let score++
 	echo
 	echo
 	echo
@@ -66,6 +68,7 @@ else
 	echo -e "alse"
 	sleep 1s
 	echo "Bingo! Keep at it."
+	let score++
 	echo
 	echo
 	echo
@@ -93,6 +96,7 @@ else
 	echo -e "alse"
 	sleep 1s
 	echo "YES, another point to you!"
+	let score++
 	echo
 	echo
 	echo
@@ -113,6 +117,7 @@ if [[ $input == "t" || $input == "T" ]]; then
 	echo "rue"
 	sleep 1s
 	echo "You got it! Well done."
+	let score++
 	echo
 	echo
 	echo
@@ -147,6 +152,7 @@ else
 	echo -e "alse"
 	sleep 1s
 	echo "That's correct! Nice work."
+	let score++
 	echo
 	echo
 	echo
@@ -167,6 +173,7 @@ if [[ $input == "t" || $input == "T" ]]; then
 	echo "rue"
 	sleep 1s
 	echo "whohoo you got it."
+	let score++
 	echo
 	echo
 	echo
@@ -201,6 +208,7 @@ else
 	echo -e "alse"
 	sleep 1s
 	echo ":) :) :) - correct."
+	let score++
 	echo
 	echo
 	echo
@@ -228,6 +236,7 @@ else
 	echo -e "alse"
 	sleep 1s
 	echo "correct answer ^_^"
+	let score++
 	echo
 	echo
 	echo
@@ -255,6 +264,7 @@ else
 	echo -e "alse"
 	sleep 1s
 	echo "That's correct! Nice work."
+	let score++
 	echo
 	echo
 	echo
@@ -292,6 +302,7 @@ else
 	echo -e "alse"
 	sleep 1s
 	echo "Another point. Nice work. ^_^"
+	let score++
 	echo
 	echo
 	echo
@@ -303,6 +314,16 @@ prompt1="Thanks for playing! I hope you had fun and maybe learned a thing or two
 for ((  i=0; i<${#prompt1}; i++ ));
 do
 echo -n "${prompt1:$i:1}"
+sleep 0.06s
+done
+echo
+
+sleep 2s
+
+showScore="Your final score is $score"
+for(( i=0; i<${#showScore}; i++));
+do
+echo -n "${showScore:$i:1}"
 sleep 0.06s
 done
 echo
